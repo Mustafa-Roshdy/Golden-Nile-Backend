@@ -14,7 +14,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: "avatars",
-    allowed_formats: ["jpg", "jpeg", "png"],
+    allowedFormats: ["jpg", "jpeg", "png"], // v4 uses allowedFormats
     transformation: [{ width: 500, height: 500, crop: "limit" }],
   },
 });
@@ -104,7 +104,7 @@ router.delete("/user/:id", async (req, res) => {
 
 
 // Protected: current user profile
-router.get("/user/profile", protect,  async (req, res) => {
+router.get("/user/profile", protect, async (req, res) => {
   try {
     if (!req.user || !req.user.id) {
       return res.status(401).json({ success: false, message: "Not authorized" });

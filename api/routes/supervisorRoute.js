@@ -34,7 +34,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: "supervisor_posts",
-    allowed_formats: ["jpg", "jpeg", "png"],
+    allowedFormats: ["jpg", "jpeg", "png"], // v4 uses allowedFormats
     transformation: [{ width: 1000, height: 1000, crop: "limit" }],
   },
 });

@@ -7,17 +7,22 @@ const { Server } = require("socket.io");
 require('dotenv').config();
 
 
-// MongoDB Connection
-main().catch((err) => console.log(err));
+const connectDB = require("./config/db.js");
 
-async function main() {
+// Connect to DB immediately
+connectDB().catch(err => console.error("Database connection error:", err));
+
+// Middleware to ensure DB connection on every request (handling serverless cold starts/warm connection drops)
+app.use(async (req, res, next) => {
   try {
-    await mongoose.connect(`${process.env.DB_URL}/TripPlanDB`);
-    console.log("MongoDB Connected");
+    await connectDB();
+    next();
   } catch (err) {
-    console.error("MongoDB Connection Error:", err);
+    console.error("Database connection failed during request:", err);
+    res.status(500).json({ error: "Database connection failed" });
   }
-}
+});
+
 
 const BookingRoute = require("./routes/bookingRoute.js");
 const TripPlanRoutes = require("./routes/tripPlanRoute.js");

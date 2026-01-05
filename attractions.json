@@ -1,0 +1,516 @@
+{
+  "aswan": [
+    {
+      "name": "Aswan High Dam",
+      "description": "One of the world's largest dams, controlling the Nile's flow and generating hydroelectric power.",
+      "latitude": 23.9698,
+      "longitude": 32.8736,
+      "image": "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?w=800&q=80",
+      "category": "historical",
+      "opening_time": "08:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Philae Temple",
+      "description": "Ancient temple complex dedicated to the goddess Isis, relocated after the dam construction.",
+      "latitude": 24.0259,
+      "longitude": 32.8842,
+      "image": "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "18:00"
+    },
+    {
+      "name": "Unfinished Obelisk",
+      "description": "Partially carved obelisk still attached to bedrock in an ancient granite quarry.",
+      "latitude": 24.0950,
+      "longitude": 32.8990,
+      "image": "https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=800&q=80",
+      "category": "historical",
+      "opening_time": "08:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Kitchener's Island (Botanical Garden)",
+      "description": "Island with exotic plants and gardens, peaceful and green spot in the Nile.",
+      "latitude": 24.0950,
+      "longitude": 32.8950,
+      "image": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80",
+      "category": "nature",
+      "opening_time": "09:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Nubian Museum",
+      "description": "Museum showcasing Nubian culture, history, and artifacts.",
+      "latitude": 24.0880,
+      "longitude": 32.8955,
+      "image": "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=800&q=80",
+      "category": "museum",
+      "opening_time": "09:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Heisa Island",
+      "description": "Basaltic Nubian island with traditional Nubian architecture and community.",
+      "latitude": 24.0735,
+      "longitude": 32.8697,
+      "image": "https://images.unsplash.com/photo-1591084728795-1149f32d9866?w=800&q=80",
+      "category": "cultural",
+      "opening_time": "00:00",
+      "closing_time": "23:59"
+    },
+    {
+      "name": "Sehel Island",
+      "description": "Island with ancient inscriptions and granite quarries, including the Famine Stela.",
+      "latitude": 24.0730,
+      "longitude": 32.8550,
+      "image": "https://images.unsplash.com/photo-1539768942893-daf53e448371?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "18:00"
+    },
+    {
+      "name": "Mausoleum of Aga Khan",
+      "description": "The mausoleum of Aga Khan III, on the west bank of the Nile in Aswan.",
+      "latitude": 24.0882,
+      "longitude": 32.8789,
+      "image": "https://images.unsplash.com/photo-1548690596-f879b28b1b1a?w=800&q=80",
+      "category": "historical",
+      "opening_time": "08:00",
+      "closing_time": "16:00"
+    },
+    {
+      "name": "St. Simeon Monastery",
+      "description": "Christian monastery perched on a hill, offering great views over the Nile.",
+      "latitude": 24.0946,
+      "longitude": 32.8757,
+      "image": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
+      "category": "historical",
+      "opening_time": "09:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Granite Quarries (Eastern Bank)",
+      "description": "Ancient granite quarries used by pharaohs for large building blocks.",
+      "latitude": 24.0500,
+      "longitude": 32.9000,
+      "image": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Nubian Village",
+      "description": "Traditional Nubian houses and culture, colorful architecture and hospitality.",
+      "latitude": 24.0833,
+      "longitude": 32.8833,
+      "image": "https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=800&q=80",
+      "category": "cultural",
+      "opening_time": "08:00",
+      "closing_time": "20:00"
+    },
+    {
+      "name": "Aswan Corniche",
+      "description": "Scenic riverside promenade along the Nile, great for walks and views.",
+      "latitude": 24.0880,
+      "longitude": 32.9000,
+      "image": "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?w=800&q=80",
+      "category": "nature",
+      "opening_time": "00:00",
+      "closing_time": "23:59"
+    },
+    {
+      "name": "Old Cataract Hotel",
+      "description": "Historic luxury hotel overlooking the Nile, known for its elegance.",
+      "latitude": 24.0880,
+      "longitude": 32.8950,
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
+      "category": "landmark",
+      "opening_time": "00:00",
+      "closing_time": "23:59"
+    },
+    {
+      "name": "Pharaonic Quarry Sites",
+      "description": "Sites of ancient quarrying activity with visible tool marks and stone blocks.",
+      "latitude": 24.0940,
+      "longitude": 32.8990,
+      "image": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Felucca Ride on Nile",
+      "description": "Traditional sailboat ride on the Nile around Aswan's islands.",
+      "latitude": 24.0850,
+      "longitude": 32.8865,
+      "image": "https://images.unsplash.com/photo-1568427675815-39c6b0c63ac7?w=800&q=80",
+      "category": "activity",
+      "opening_time": "06:00",
+      "closing_time": "19:00"
+    },
+    {
+      "name": "Felucca Sunset Cruise",
+      "description": "Enjoy the sunset on a felucca, cruising on the Nile.",
+      "latitude": 24.0850,
+      "longitude": 32.8865,
+      "image": "https://images.unsplash.com/photo-1495954484750-af469f2f9be5?w=800&q=80",
+      "category": "activity",
+      "opening_time": "17:00",
+      "closing_time": "20:00"
+    },
+    {
+      "name": "Aswan Art Gallery",
+      "description": "Gallery featuring Nubian and Egyptian artworks.",
+      "latitude": 24.0880,
+      "longitude": 32.8950,
+      "image": "https://images.unsplash.com/photo-1578926288207-01fa2b31e93a?w=800&q=80",
+      "category": "cultural",
+      "opening_time": "09:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Island of Nile Viewpoints",
+      "description": "Beautiful viewpoints on islands in the Nile, ideal for photography.",
+      "latitude": 24.0850,
+      "longitude": 32.8865,
+      "image": "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=800&q=80",
+      "category": "nature",
+      "opening_time": "00:00",
+      "closing_time": "23:59"
+    },
+    {
+      "name": "Russian-Egyptian Friendship Monument",
+      "description": "Tower monument symbolizing the friendship between Russia and Egypt.",
+      "latitude": 24.0930,
+      "longitude": 32.8910,
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+      "category": "landmark",
+      "opening_time": "08:00",
+      "closing_time": "18:00"
+    },
+    {
+      "name": "Coptic Orthodox Cathedral (Archangel Michael)",
+      "description": "The main Coptic Orthodox church in Aswan with impressive architecture.",
+      "latitude": 24.0890,
+      "longitude": 32.8980,
+      "image": "https://images.unsplash.com/photo-1548625361-6062910fe10a?w=800&q=80",
+      "category": "religious",
+      "opening_time": "07:00",
+      "closing_time": "19:00"
+    },
+    {
+      "name": "Qubbat al‑Hawa (Tomb Hill)",
+      "description": "Hill with ancient tombs and panoramic view of the Nile islands.",
+      "latitude": 24.0925,
+      "longitude": 32.8760,
+      "image": "https://images.unsplash.com/photo-1539768942893-daf53e448371?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "18:00"
+    },
+    {
+      "name": "Temple of Beit el‑Wali",
+      "description": "Rock-cut temple of Ramesses II, relocated to higher ground after the dam.",
+      "latitude": 23.8720,
+      "longitude": 32.9190,
+      "image": "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80",
+      "category": "historical",
+      "opening_time": "08:00",
+      "closing_time": "16:00"
+    },
+    {
+      "name": "Lake Nasser",
+      "description": "Massive artificial lake created by the High Dam; offers cruises and fishing.",
+      "latitude": 23.9134,
+      "longitude": 32.8672,
+      "image": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&q=80",
+      "category": "nature",
+      "opening_time": "00:00",
+      "closing_time": "23:59"
+    },
+    {
+      "name": "Aswan Museum (Elephantine Island)",
+      "description": "Museum on Elephantine Island with Nubian artifacts, nilometer, and ruins.",
+      "latitude": 24.0860,
+      "longitude": 32.8880,
+      "image": "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=800&q=80",
+      "category": "museum",
+      "opening_time": "08:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Botanical Research Center",
+      "description": "Center for research on Nile and Nubian flora located on Kitchener Island.",
+      "latitude": 24.0950,
+      "longitude": 32.8950,
+      "image": "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&q=80",
+      "category": "nature",
+      "opening_time": "09:00",
+      "closing_time": "16:00"
+    },
+    {
+      "name": "Aswan Heritage Center",
+      "description": "Cultural center preserving Nubian heritage, traditions and crafts.",
+      "latitude": 24.0880,
+      "longitude": 32.8950,
+      "image": "https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=800&q=80",
+      "category": "cultural",
+      "opening_time": "09:00",
+      "closing_time": "18:00"
+    },
+    {
+      "name": "Desert Safari (Aswan)",
+      "description": "Camel or 4×4 tours into the desert, exploring tombs and desert landscapes.",
+      "latitude": 24.0800,
+      "longitude": 32.8800,
+      "image": "https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?w=800&q=80",
+      "category": "activity",
+      "opening_time": "05:00",
+      "closing_time": "20:00"
+    },
+    {
+      "name": "Tomb of the Nobles",
+      "description": "Ancient tombs carved into the rock for nobles and priests.",
+      "latitude": 24.0860,
+      "longitude": 32.8870,
+      "image": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=800&q=80",
+      "category": "historical",
+      "opening_time": "08:00",
+      "closing_time": "16:00"
+    },
+    {
+      "name": "Aswan Sailing Club",
+      "description": "Club for sailing and water-based activities on the Nile.",
+      "latitude": 24.0880,
+      "longitude": 32.8950,
+      "image": "https://images.unsplash.com/photo-1535581708032-64e810eb9bfe?w=800&q=80",
+      "category": "activity",
+      "opening_time": "06:00",
+      "closing_time": "18:00"
+    },
+    {
+      "name": "Tourist Street Market (Aswan Souk)",
+      "description": "Vibrant bazaar selling spices, crafts, textiles and local souvenirs.",
+      "latitude": 24.0900,
+      "longitude": 32.8990,
+      "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+      "category": "market",
+      "opening_time": "09:00",
+      "closing_time": "21:00"
+    }
+  ],
+  "luxor": [
+    {
+      "name": "Karnak Temple Complex",
+      "description": "أكبر مجمع معابد في الأقصر، مكرّس لآمون رع ويضم قاعات أعمدة ضخمة ومناطق متعددة.",
+      "latitude": 25.71822,
+      "longitude": 32.65813,
+      "image": "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Luxor Temple",
+      "description": "معبد الأقصر يقع في قلب المدينة على الكورنيش، ويشتهر بالمسلات والتماثيل.",
+      "latitude": 25.6994,
+      "longitude": 32.6394,
+      "image": "https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "20:00"
+    },
+    {
+      "name": "Valley of the Kings",
+      "description": "وادي الملوك: مقابر ملوك الفراعنة من الأسرة الثامنة عشر إلى العشرين.",
+      "latitude": 25.7403,
+      "longitude": 32.6014,
+      "image": "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Mortuary Temple of Hatshepsut (Deir el‑Bahari)",
+      "description": "معبد جنائزي للملكة حتشبسوت مع تصميم شُرَف متدرِّجة أسفل الجبل.",
+      "latitude": 25.7375,
+      "longitude": 32.6056,
+      "image": "https://images.unsplash.com/photo-1539768942893-daf53e448371?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Colossi of Memnon",
+      "description": "تمثالان ضخمان للملك أمنحتب الثالث يقفان على الضفة الغربية للأقصر.",
+      "latitude": 25.7240,
+      "longitude": 32.6050,
+      "image": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "18:00"
+    },
+    {
+      "name": "Ramesseum (Mortuary Temple of Ramses II)",
+      "description": "معبد جنائزي لرمسيس الثاني، يحتوي على تماثيل ضخم ونقوش بطولاته.",
+      "latitude": 25.7255,
+      "longitude": 32.6030,
+      "image": "https://images.unsplash.com/photo-1548690596-f879b28b1b1a?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Medinet Habu Temple",
+      "description": "معبد جنائزي لرمسيس الثالث في مدينة هابو، يتميز بأعمدة ونقوش عظيمة.",
+      "latitude": 25.7250,
+      "longitude": 32.6010,
+      "image": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Deir el‑Medina (Village of the Workers)",
+      "description": "قرية العمال الذين بنوا مقابر الملوك في وادي الملوك، مع بيوت ومقابر صغيرة.",
+      "latitude": 25.7320,
+      "longitude": 32.6000,
+      "image": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Valley of the Queens",
+      "description": "نقطة دفن الملكات والنسوة من العائلة الملكية في العصور القديمة.",
+      "latitude": 25.7350,
+      "longitude": 32.6040,
+      "image": "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "El‑Qurn (The Theban Peak)",
+      "description": "جبل هرمى الشكل يطل على وادي الملوك، مرتبط ببعض الأساطير الفرعونية.",
+      "latitude": 25.7460,
+      "longitude": 32.5960,
+      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+      "category": "nature",
+      "opening_time": "00:00",
+      "closing_time": "23:59"
+    },
+    {
+      "name": "Karnak Open Air Museum",
+      "description": "متحف مفتوح ضمن مجمع الكرنك يحتوي على شواهد معمارية تم ترميمها مثل الشابيل الأحمر والأبيض.",
+      "latitude": 25.7182,
+      "longitude": 32.6581,
+      "image": "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=800&q=80",
+      "category": "museum",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Temple of Khonsu (in Karnak)",
+      "description": "معبد خونسو داخل مجمع الكرنك، مكرّس لإله القمر خونسو.",
+      "latitude": 25.7167,
+      "longitude": 32.6558,
+      "image": "https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Luxor Museum",
+      "description": "متحف يضم تماثيل نقشية وتحف من المقابر والمعابد القريبة.",
+      "latitude": 25.6967,
+      "longitude": 32.6422,
+      "image": "https://images.unsplash.com/photo-1578926288207-01fa2b31e93a?w=800&q=80",
+      "category": "museum",
+      "opening_time": "09:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Mummification Museum (Luxor)",
+      "description": "متحف مخصص لشرح أسرار التحنيط والتقنيات القديمة في مصر الفرعونية.",
+      "latitude": 25.6950,
+      "longitude": 32.6425,
+      "image": "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=800&q=80",
+      "category": "museum",
+      "opening_time": "09:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Luxor Balloon Field",
+      "description": "موقع انطلاق رحلات البالون الطائر فوق الأقصر لمشاهدة المعابد من السماء.",
+      "latitude": 25.6830,
+      "longitude": 32.6390,
+      "image": "https://images.unsplash.com/photo-1495954484750-af469f2f9be5?w=800&q=80",
+      "category": "activity",
+      "opening_time": "04:30",
+      "closing_time": "07:00"
+    },
+    {
+      "name": "Avenue of Sphinxes (Karnak‑Luxor)",
+      "description": "طريق الكباش يربط بين معبدي الكرنك والأقصر ويضم تماثيل أبو الهول.",
+      "latitude": 25.7130,
+      "longitude": 32.6480,
+      "image": "https://images.unsplash.com/photo-1548625361-6062910fe10a?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "20:00"
+    },
+    {
+      "name": "Malkata Palace (Amenhotep III)",
+      "description": "أطلال قصر الملك أمنحتب الثالث في الملقطة بالقرب من الأقصر.",
+      "latitude": 25.7030,
+      "longitude": 32.6290,
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+      "category": "historical",
+      "opening_time": "06:00",
+      "closing_time": "17:00"
+    },
+    {
+      "name": "Deir el‑Shelwit (Temple of Isis)",
+      "description": "معبد الإيزيس من العصر الروماني على الضفة الغربية للأقصر.",
+      "latitude": 25.6983,
+      "longitude": 32.6013,
+      "image": "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80",
+      "category": "historical",
+      "opening_time": "08:00",
+      "closing_time": "16:00"
+    },
+    {
+      "name": "Luxor Corniche",
+      "description": "ممشى جميل على ضفاف النيل في الأقصر، مكان مناسب للنزهات مساءً.",
+      "latitude": 25.7000,
+      "longitude": 32.6390,
+      "image": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&q=80",
+      "category": "nature",
+      "opening_time": "00:00",
+      "closing_time": "23:59"
+    },
+    {
+      "name": "Banana Island (Qurqa)",
+      "description": "جزيرة الموز في النيل قرب الأقصر، مكان هادئ للراحة والاستمتاع بالطبيعة.",
+      "latitude": 25.7180,
+      "longitude": 32.6300,
+      "image": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80",
+      "category": "nature",
+      "opening_time": "06:00",
+      "closing_time": "18:00"
+    },
+    {
+      "name": "Luxor Sound & Light Show (Karnak)",
+      "description": "عرض ضوء وصوت ليلي في معبد الكرنك يحكي تاريخ المعبد والفراعنة.",
+      "latitude": 25.7182,
+      "longitude": 32.6581,
+      "image": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80",
+      "category": "activity",
+      "opening_time": "20:00",
+      "closing_time": "22:00"
+    }
+  ]
+}

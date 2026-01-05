@@ -6,6 +6,19 @@ const http = require("http");
 const { Server } = require("socket.io");
 require('dotenv').config();
 
+
+// MongoDB Connection
+main().catch((err) => console.log(err));
+
+async function main() {
+  try {
+    await mongoose.connect(`${process.env.DB_URL}/TripPlanDB`);
+    console.log("MongoDB Connected");
+  } catch (err) {
+    console.error("MongoDB Connection Error:", err);
+  }
+}
+
 const BookingRoute = require("./routes/bookingRoute.js");
 const TripPlanRoutes = require("./routes/tripPlanRoute.js");
 const UserRoutes = require("./routes/userRoute.js");
@@ -23,17 +36,17 @@ const ConversationRoutes = require("./routes/conversationRoute.js");
 const PaymentRoutes = require("./routes/paymentRoute.js");
 
 const app = express();
-const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: "*", // Allow all for real-time
-    methods: ["GET", "POST"],
-    credentials: true,
-  },
-  transports: ["websocket", "polling"],
-});
+// const server = http.createServer(app);
+// const io = new Server(server, {
+//   cors: {
+//     origin: "*", // Allow all for real-time
+//     methods: ["GET", "POST"],
+//     credentials: true,
+//   },
+//   transports: ["websocket", "polling"],
+// });
 
-app.set("io", io);
+// app.set("io", io);
 
 const allowedOrigins = [
   "http://localhost:3000",
@@ -42,17 +55,7 @@ const allowedOrigins = [
   "http://127.0.0.1:5500",
 ];
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-      return callback(new Error("Not allowed by CORS"));
-    },
-    credentials: true,
-  })
-);
+app.use(cors());
 
 // Middlewares
 app.use(express.json());
@@ -61,17 +64,7 @@ app.use(express.urlencoded({ extended: true }));
 // Static serving for uploaded images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// MongoDB Connection
-main().catch((err) => console.log(err));
 
-async function main() {
-  try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/TripPlanDB");
-    console.log("MongoDB Connected");
-  } catch (err) {
-    console.error("MongoDB Connection Error:", err);
-  }
-}
 
 // Routes
 app.use("/api", AuthRoutes)
@@ -91,23 +84,23 @@ app.use("/api", ConversationRoutes);
 app.use("/api", PaymentRoutes);
 
 // Socket logic
-io.on("connection", (socket) => {
-  console.log("A user connected:", socket.id);
+// io.on("connection", (socket) => {
+//   console.log("A user connected:", socket.id);
 
-  socket.on("join_conversation", (conversationId) => {
-    socket.join(conversationId);
-    console.log(`✅ User ${socket.id} joined conversation: ${conversationId}`);
-  });
+//   socket.on("join_conversation", (conversationId) => {
+//     socket.join(conversationId);
+//     console.log(`✅ User ${socket.id} joined conversation: ${conversationId}`);
+//   });
 
-  socket.on("join_user_room", (userId) => {
-    socket.join(userId);
-    console.log(`🏡 User ${socket.id} joined personal room: ${userId}`);
-  });
+//   socket.on("join_user_room", (userId) => {
+//     socket.join(userId);
+//     console.log(`🏡 User ${socket.id} joined personal room: ${userId}`);
+//   });
 
-  socket.on("disconnect", () => {
-    console.log("User disconnected");
-  });
-});
+//   socket.on("disconnect", () => {
+//     console.log("User disconnected");
+//   });
+// });
 
 // Error handler middleware
 app.use((err, req, res, next) => {
@@ -117,6 +110,8 @@ app.use((err, req, res, next) => {
 
 // Server
 const PORT = process.env.PORT || 8000;
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server & Socket Running at port ${PORT}`);
 });
+
+module.exports = app;

@@ -4,13 +4,19 @@ const userController = require("../controllers/userController.js");
 const userValidation = require("../validation/userValidation.js");
 const { protect } = require("../middleware/authMiddleware.js");
 const multer = require("multer");
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require("../config/cloudinary.js");
 const path = require("path");
 const jwt = require("jsonwebtoken");
 
 // avatar storage
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, path.join(__dirname, "..", "uploads")),
-  filename: (req, file, cb) => cb(null, `avatar_${req.user.id}_${Date.now()}${path.extname(file.originalname)}`),
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "avatars",
+    allowed_formats: ["jpg", "jpeg", "png"],
+    transformation: [{ width: 500, height: 500, crop: "limit" }],
+  },
 });
 const upload = multer({ storage });
 
@@ -126,7 +132,7 @@ router.get("/user/profile", protect,  async (req, res) => {
 router.post("/user/profile/photo", protect, upload.single("photo"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ success: false, message: "No file uploaded" });
-    const photoUrl = `/uploads/${req.file.filename}`;
+    const photoUrl = req.file.path;
     const updated = await userController.updateUser(req.user.id, { photo: photoUrl });
     res.status(200).json({ success: true, photo: photoUrl, data: updated });
   } catch (err) {

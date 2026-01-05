@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const { CloudinaryStorage } = require('multer-storage-cloudinary'); 
 const cloudinary = require("../config/cloudinary.js"); // your Cloudinary config
 const placeController = require("../controllers/placeController.js");
 const placeValidation = require("../validation/placeValidation.js");

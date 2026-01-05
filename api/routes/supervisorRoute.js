@@ -8,6 +8,8 @@ const multer = require("multer");
 const Post = require("../models/postModel.js");
 const User = require("../models/userModel.js");
 const { protect } = require("../middleware/authMiddleware.js");
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require("../config/cloudinary.js");
 
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_here";
 
@@ -27,18 +29,13 @@ function authOptional(req, res, next) {
 }
 
 // Multer storage for image uploads
-const uploadsDir = path.join(__dirname, "..", "uploads");
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, uploadsDir);
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    const ext = path.extname(file.originalname);
-    cb(null, uniqueSuffix + ext);
+// Multer storage for image uploads
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "supervisor_posts",
+    allowed_formats: ["jpg", "jpeg", "png"],
+    transformation: [{ width: 1000, height: 1000, crop: "limit" }],
   },
 });
 const upload = multer({ storage });
@@ -521,7 +518,7 @@ router.post("/posts", protect, upload.array("images", 10), async (req, res, next
 
     // Build image URLs if any files are uploaded
     const images = Array.isArray(req.files)
-      ? req.files.map((f) => `${req.protocol}://${req.get("host")}/uploads/${f.filename}`)
+      ? req.files.map((f) => f.path)
       : [];
 
     const newPost = new Post({
@@ -570,7 +567,7 @@ router.get("/posts/:id", authOptional, async (req, res, next) => {
       try {
         const user = await User.findById(req.user.id).lean();
         if (user) currentUsername = `${user.firstName} ${user.lastName}`;
-      } catch (_) {}
+      } catch (_) { }
     }
 
     return res.json({
@@ -625,8 +622,8 @@ router.get("/posts", authOptional, async (req, res, next) => {
           currentUsername = `${user.firstName} ${user.lastName}`;
         }
       } catch (err) {
-          // ignore error, user not found
-        }
+        // ignore error, user not found
+      }
     }
 
     const limit = parseInt(req.query.limit) || 50; // default higher for now
@@ -738,7 +735,7 @@ router.post("/posts/:id/comment", protect, upload.array("images", 5), async (req
 
     // Build image URLs if any files are uploaded
     const images = Array.isArray(req.files)
-      ? req.files.map((f) => `${req.protocol}://${req.get("host")}/uploads/${f.filename}`)
+      ? req.files.map((f) => f.path)
       : [];
 
     const newComment = {

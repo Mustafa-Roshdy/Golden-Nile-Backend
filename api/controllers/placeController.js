@@ -2,6 +2,10 @@ const Place = require("../models/placeModel.js");
 
 // CREATE Place
 async function createPlace(data) {
+  const count = await Place.countDocuments();
+  if (count >= 10) {
+    throw new Error("Cannot create more than 10 places");
+  }
   const place = await Place.create(data);
   return await Place.findById(place._id).populate("createdBy").populate({
     path: "reviews",

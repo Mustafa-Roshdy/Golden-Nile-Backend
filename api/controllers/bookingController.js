@@ -3,7 +3,11 @@ const Place = require("../models/placeModel.js");
 
 // Create Booking
 async function createBooking(data) {
-  // Auto-assign admin = place.createdBy  
+  const count = await Booking.countDocuments();
+  if (count >= 30) {
+    throw new Error("Cannot create more than 30 bookings");
+  }
+  // Auto-assign admin = place.createdBy
   const place = await Place.findById(data.place);
   if (!place) throw new Error("Place not found");
 

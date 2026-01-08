@@ -3,6 +3,10 @@ const Place = require("../models/placeModel.js");
 
 // Create a review
 async function createReview(data) {
+  const count = await Review.countDocuments();
+  if (count >= 15) {
+    throw new Error("Cannot create more than 15 reviews");
+  }
   const review = await Review.create(data);
 
   // Add review to place's reviews array

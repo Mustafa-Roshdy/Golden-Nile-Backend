@@ -83,6 +83,11 @@ router.post("/posts", protect, upload.array("images", 10), async (req, res, next
       ? req.files.map((f) => f.path)
       : [];
 
+    const count = await Post.countDocuments();
+    if (count >= 20) {
+      return res.status(400).json({ message: "Cannot create more than 20 posts" });
+    }
+
     const newPost = new Post({
       userId: req.user.id,
       author,

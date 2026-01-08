@@ -50,6 +50,10 @@ async function getContacts(userId) {
 
 // Create a new contact (conversation)
 async function createContact(userId, contactUserId) {
+  const count = await Contact.countDocuments();
+  if (count >= 20) {
+    throw new Error("Cannot create more than 20 contacts");
+  }
   // Avoid creating duplicates regardless of who started the chat first
   const existing = await populateContact(
     Contact.findOne({

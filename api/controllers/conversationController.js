@@ -4,6 +4,10 @@ const crypto = require("crypto");
 // Create conversation ID
 async function createConversation(userId) {
   try {
+    const count = await Conversation.countDocuments();
+    if (count >= 20) {
+      throw new Error("Cannot create more than 20 conversations");
+    }
     // Generate a unique conversation ID locally
     const conversationId = `conv_${crypto.randomUUID()}`;
 

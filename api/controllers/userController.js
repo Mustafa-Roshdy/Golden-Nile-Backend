@@ -2,6 +2,10 @@ const User = require("../models/userModel.js");
 
 // create User
 async function createUser(data) {
+    const count = await User.countDocuments();
+    if (count >= 10) {
+        throw new Error("Cannot create more than 10 users");
+    }
     return await User.create(data);
 }
 

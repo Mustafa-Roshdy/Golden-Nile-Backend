@@ -60,7 +60,20 @@ const allowedOrigins = [
   "http://127.0.0.1:5500",
 ];
 
-app.use(cors());
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+
+    // Check if origin is in the allowed list or is a Vercel deployment
+    if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+      return callback(null, true);
+    }
+
+    return callback(new Error('Not allowed by CORS'), false);
+  },
+  credentials: true
+}));
 
 // Middlewares
 app.use(express.json());

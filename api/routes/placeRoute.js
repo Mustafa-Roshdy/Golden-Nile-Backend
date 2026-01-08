@@ -55,7 +55,7 @@ router.post(
       if (error) return res.status(400).json({ error: error.details[0].message });
 
       // Cloudinary image URLs
-      const images = req.files.map((file) => file.path);
+      const images = req.files ? req.files.map((file) => file.path) : [];
 
       const placeData = {
         ...processedBody,

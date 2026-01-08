@@ -2,15 +2,27 @@ const Place = require("../models/placeModel.js");
 
 // CREATE Place
 async function createPlace(data) {
-  const count = await Place.countDocuments();
-  if (count >= 10) {
-    throw new Error("Cannot create more than 10 places");
+  console.log("Data received in createPlace:", JSON.stringify(data, null, 2));
+  try {
+    const count = await Place.countDocuments();
+    console.log("Current place count:", count);
+    if (count >= 10) {
+      throw new Error("Cannot create more than 10 places");
+    }
+    console.log("Attempting to create place...");
+    const place = await Place.create(data);
+    console.log("Place created successfully:", place._id);
+    console.log("Attempting to populate and return place...");
+    const populatedPlace = await Place.findById(place._id).populate("createdBy").populate({
+      path: "reviews",
+      populate: { path: "user", select: "firstName lastName email photo" }
+    });
+    console.log("Place populated successfully");
+    return populatedPlace;
+  } catch (error) {
+    console.log("Error in createPlace:", error);
+    throw error;
   }
-  const place = await Place.create(data);
-  return await Place.findById(place._id).populate("createdBy").populate({
-    path: "reviews",
-    populate: { path: "user", select: "firstName lastName email photo" }
-  });
 }
 
 // GET all Places

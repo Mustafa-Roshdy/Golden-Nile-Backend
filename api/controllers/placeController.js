@@ -4,11 +4,11 @@ const Place = require("../models/placeModel.js");
 async function createPlace(data) {
   console.log("Data received in createPlace:", JSON.stringify(data, null, 2));
   try {
-    const count = await Place.countDocuments();
-    console.log("Current place count:", count);
-    if (count >= 10) {
-      throw new Error("Cannot create more than 10 places");
-    }
+    // const count = await Place.countDocuments();
+    // console.log("Current place count:", count);
+    // if (count >= 10) {
+    //   throw new Error("Cannot create more than 10 places");
+    // }
     console.log("Attempting to create place...");
     const place = await Place.create(data);
     console.log("Place created successfully:", place._id);

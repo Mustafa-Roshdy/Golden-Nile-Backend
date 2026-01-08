@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
+const app = express();
 require('dotenv').config();
 
 
@@ -40,7 +41,6 @@ const TravelAdviceRoutes = require("./routes/travelAdviceRoute.js");
 const ConversationRoutes = require("./routes/conversationRoute.js");
 const PaymentRoutes = require("./routes/paymentRoute.js");
 
-const app = express();
 // const server = http.createServer(app);
 // const io = new Server(server, {
 //   cors: {

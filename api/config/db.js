@@ -8,6 +8,10 @@ if (!cached) {
 }
 
 async function connectDB() {
+    if (!cached) {
+        cached = global.mongoose;
+    }
+
     if (cached.conn) {
         console.log("Using cached MongoDB connection");
         return cached.conn;

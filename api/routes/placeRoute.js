@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const { CloudinaryStorage } = require('multer-storage-cloudinary'); 
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const cloudinary = require("../config/cloudinary.js"); // your Cloudinary config
 const placeController = require("../controllers/placeController.js");
 const placeValidation = require("../validation/placeValidation.js");
@@ -56,8 +56,8 @@ router.post(
           processedBody.cuisine = Array.isArray(req.body.cuisine)
             ? req.body.cuisine.filter(item => typeof item === 'string' && item.trim())
             : typeof req.body.cuisine === "string"
-            ? [req.body.cuisine.trim()].filter(item => item)
-            : [];
+              ? [req.body.cuisine.trim()].filter(item => item)
+              : [];
         } else {
           processedBody.cuisine = [];
         }
@@ -110,7 +110,13 @@ router.post(
     } catch (err) {
       console.log("Error in place creation:", err);
       console.log("Error stack:", err.stack);
-      res.status(500).json({ success: false, message: err.message });
+
+      // Check for Mongoose validation errors or manually thrown errors
+      if (err.name === 'ValidationError' || err.message.includes('must be')) {
+        return res.status(400).json({ success: false, message: err.message });
+      }
+
+      res.status(500).json({ success: false, message: err.message || "Internal Server Error" });
     }
   }
 );
@@ -235,8 +241,8 @@ router.put(
         updatedData.cuisine = Array.isArray(req.body.cuisine)
           ? req.body.cuisine
           : typeof req.body.cuisine === "string"
-          ? [req.body.cuisine]
-          : [];
+            ? [req.body.cuisine]
+            : [];
       }
 
       // Cloudinary image URLs

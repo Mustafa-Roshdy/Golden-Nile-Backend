@@ -31,46 +31,64 @@ router.post(
   upload.array("images", 10),
   async (req, res) => {
     console.log("Starting place creation");
+    console.log("req.user:", req.user);
+    console.log("req.files:", req.files);
     console.log("req.body:", req.body);
-
     try {
-      // Pre-process body to handle FormData array inconsistencies
-      const rawBody = { ...req.body };
+      const processedBody = { ...req.body };
 
-      // Handle cuisine parsing if it's a string (FormData often sends arrays as multiple keys or one string)
-      if (rawBody.cuisine) {
-        if (typeof rawBody.cuisine === 'string') {
-          // If it mimics an array string like "['Italian', 'Mexican']" or just "Italian"
-          rawBody.cuisine = rawBody.cuisine.includes(',')
-            ? rawBody.cuisine.split(',').map(c => c.trim())
-            : [rawBody.cuisine.trim()];
+      // Convert numeric fields
+      ["rooms", "latitude", "longitude", "pricePerNight", "pricePerTable", "chairsPerTable"].forEach(
+        (field) => {
+          if (req.body[field]) {
+            const num = Number(req.body[field]);
+            if (isNaN(num)) {
+              throw new Error(`${field} must be a valid number`);
+            }
+            processedBody[field] = num;
+          }
+        }
+      );
+
+      // Convert cuisine array if type is restaurant
+      if (req.body.type === "restaurant") {
+        if (req.body.cuisine) {
+          processedBody.cuisine = Array.isArray(req.body.cuisine)
+            ? req.body.cuisine.filter(item => typeof item === 'string' && item.trim())
+            : typeof req.body.cuisine === "string"
+              ? [req.body.cuisine.trim()].filter(item => item)
+              : [];
+        } else {
+          processedBody.cuisine = [];
         }
       }
 
-      // Convert numeric fields if they are strings (Joi does this too, but helper for safety)
-      const numericFields = ["rooms", "latitude", "longitude", "pricePerNight", "pricePerTable", "chairsPerTable", "rating"];
-      numericFields.forEach(field => {
-        if (rawBody[field] && typeof rawBody[field] === 'string') {
-          const val = Number(rawBody[field]);
-          if (!isNaN(val)) rawBody[field] = val;
-        }
-      });
+      if (!['aswan', 'luxor'].includes(req.body.governorate)) {
+        throw new Error('Governorate must be either aswan or luxor');
+      }
+      processedBody.governorate = req.body.governorate;
 
-      // Validate with Joi which returns the clean object with conversions
-      const { error, value } = placeValidation.validate(rawBody, { stripUnknown: true });
+      if (!['guest_house', 'restaurant'].includes(req.body.type)) {
+        throw new Error('Type must be either guest_house or restaurant');
+      }
+      processedBody.type = req.body.type;
 
+      console.log("processedBody:", processedBody);
+
+      const { error } = placeValidation.validate(processedBody);
       if (error) {
         console.log("Validation error:", error.details[0].message);
-        return res.status(400).json({ success: false, message: error.details[0].message });
+        return res.status(400).json({ error: error.details[0].message });
       }
 
-      console.log("Validation passed. Validated Value:", value);
+      console.log("Validation passed");
 
       // Cloudinary image URLs
       const images = req.files ? req.files.map((file) => file.path) : [];
+      console.log("Images:", images);
 
       const placeData = {
-        ...value,
+        ...processedBody,
         createdBy: req.user.id,
         images,
       };
@@ -79,17 +97,20 @@ router.post(
       if (!req.user || !req.user.id) {
         throw new Error('User not authenticated');
       }
+      const mongoose = require('mongoose');
+      if (!mongoose.Types.ObjectId.isValid(req.user.id)) {
+        throw new Error('Invalid user ID');
+      }
+
+      console.log("placeData:", placeData);
 
       const place = await placeController.createPlace(placeData);
       console.log("Place created successfully:", place);
       res.status(201).json({ success: true, data: place });
     } catch (err) {
-      console.error("Error in place creation:", err);
-      // Check for Mongoose validation errors or manually thrown errors
-      if (err.name === 'ValidationError' || (err.message && err.message.includes('must be'))) {
-        return res.status(400).json({ success: false, message: err.message });
-      }
-      res.status(500).json({ success: false, message: err.message || "Internal Server Error" });
+      console.log("Error in place creation:", err);
+      console.log("Error stack:", err.stack);
+      res.status(500).json({ success: false, message: err.message });
     }
   }
 );

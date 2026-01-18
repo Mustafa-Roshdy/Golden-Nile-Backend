@@ -63,7 +63,7 @@ router.post("/posts", protect, upload.array("images", 10), async (req, res, next
         author = `${user.firstName} ${user.lastName}`;
         // Use user's photo if available, else generate avatar from name
         if (user.photo) {
-          avatar = `${req.protocol}://${req.get("host")}${user.photo}`;
+          avatar = user.photo;
         } else {
           avatar = `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(author)}`;
         }
